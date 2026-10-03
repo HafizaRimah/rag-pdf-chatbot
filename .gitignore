@@ -1,0 +1,39 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Model files (too large for git)
+models/
+*.bin
+*.pt
+*.onnx
+
+# FAISS index files
+*.faiss
+*.index
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User PDF documents (keep the folder, ignore contents)
+data/documents/*
+!data/documents/.gitkeep
+
+# Logs
+*.log
