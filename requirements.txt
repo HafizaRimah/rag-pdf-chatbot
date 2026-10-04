@@ -8,5 +8,5 @@ pymupdf==1.28.2
 # Vector store
 faiss-cpu==1.15.1
 
-# Web UI (install in Phase 9)
-# streamlit
+# Web UI
+streamlit==1.65.0
