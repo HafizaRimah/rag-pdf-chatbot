@@ -707,10 +707,12 @@ with chat_col:
                 "time": datetime.datetime.now().strftime("%H:%M"),
             })
 
-            # Automatically show the top source in the inspector
+            # Automatically show the top source in the inspector if relevant
             if sources_list:
                 st.session_state.active_source = sources_list[0]
                 st.session_state.inspector_page_idx = 0
+            else:
+                st.session_state.active_source = None
 
             st.rerun()
 

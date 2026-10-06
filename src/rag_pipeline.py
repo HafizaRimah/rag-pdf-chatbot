@@ -148,9 +148,12 @@ class RAGPipeline:
         # Step 3: Generate answer
         answer = self.llm.generate(question=question, context=context)
 
+        # Retain sources that meet a baseline relevance score threshold
+        relevant_sources = [r for r in results if r.get("score", 0) >= 0.18]
+
         return {
             "answer": answer,
-            "sources": results,
+            "sources": relevant_sources,
             "question": question,
         }
 

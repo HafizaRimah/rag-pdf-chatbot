@@ -66,23 +66,25 @@ class LLM:
         """
         Build the RAG prompt.
 
-        The prompt tells the LLM to:
-          - Answer ONLY based on the provided context
-          - Admit when it doesn't know
-          - Cite which source/page the answer comes from
+        Instructs the LLM to:
+          - Respond warmly and naturally to conversational greetings, compliments, and thanks.
+          - For document questions, ground answers strictly in the provided context and cite sources/pages.
+          - If a factual question is genuinely not in the context, state that the documents do not contain that information.
         """
-        prompt = f"""You are a helpful assistant that answers questions based on the provided context.
+        prompt = f"""You are a helpful, friendly, and intelligent AI assistant specialized in analyzing uploaded PDF documents.
 
-RULES:
-- Answer the question using ONLY the information in the context below.
-- If the context does not contain enough information to answer, say "I don't have enough information to answer this question based on the provided documents."
-- Keep your answer clear and concise.
-- When possible, mention which source document and page the information comes from.
+GUIDELINES:
+1. CASUAL CHAT & COMPLIMENTS: If the user says hello, thanks, compliments your performance (e.g. "good you are doing good", "nice job"), or chats casually, respond naturally, warmly, and politely as an assistant. You do NOT need document context for pleasantries.
+2. QUESTIONS ABOUT DOCUMENTS: When the user asks a question about facts, concepts, or topics:
+   - Base your answer primarily on the CONTEXT below.
+   - Mention the source document and page number when citing facts.
+   - If the user asks a specific factual question that is genuinely not mentioned in the context, politely state that the provided documents do not contain that information.
+3. Keep your answers clear, helpful, and concise.
 
-CONTEXT:
+CONTEXT FROM DOCUMENTS:
 {context}
 
-QUESTION:
+USER MESSAGE:
 {question}
 
 ANSWER:"""
