@@ -4,7 +4,7 @@ A learning-focused Retrieval-Augmented Generation (RAG) chatbot that answers que
 
 Built completely from scratch — **no LangChain or high-level orchestration frameworks** — to understand and demonstrate how every layer of a modern RAG system operates under the hood.
 
----
+----
 
 ## 🏛️ Architecture & Data Flow
 
